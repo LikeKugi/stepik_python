@@ -23,7 +23,12 @@ while i<j:
         break
     i+=1
     j-=1
+print(s)
 print('yes' if is_palindrome else 'no')
+
+genreverse = genome1[::-1]
+print(genome1,genreverse)
+print('yes' if genome1 == genreverse else 'no')
 
 s = 'abcdefghijk'
 print(s[3:6],end=' ')
