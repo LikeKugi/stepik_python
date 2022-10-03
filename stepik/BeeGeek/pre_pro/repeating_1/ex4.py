@@ -7,9 +7,9 @@ n человек, пронумерованных числами от 1 до n, �
 
 mans = [man for man in range(1,int(input())+1)]
 k = int(input())
-
+index = 0
 while len(mans)!=1:
     ends = len(mans)
-    index = (0+k)
+    index = (index+k-1) % ends
     mans.pop(index)
 print(*mans)
