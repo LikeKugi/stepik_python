@@ -4,12 +4,16 @@
 Помогите ребятам вновь бросить честный жребий и определить, кто будет делать следующий модуль в новом курсе.
 """
 
-figure = {'камень': 0, 'ножницы': 1, 'бумага': -1}
-
-figure_1 = {0: 'камень', 1: 'ножницы', -1: 'бумага', -2: 'ящерица', 2: 'Спок'}
+wins = {"камень": ["ножницы", "ящерица"], "ножницы": ["бумага", "ящерица"], "бумага": ["камень", "Спок"],
+        "ящерица": ["бумага", "Спок"], "Спок": ["камень", "ножницы"]}
 result = {0: 'ничья', 1: 'Тимур', 2: 'Руслан'}
 
-for i in range(-2, 3):
-    for j in range(-2, 3):
-        print(figure_1.get(i), '-', figure_1.get(j), '\t:', result.get((-1 * (i - j)) % 3))
-        #print(result.get((-1 * (i - j)) % 3))
+tim_choise = input()
+rus_choise = input()
+if tim_choise != rus_choise:
+    if rus_choise in wins.get(tim_choise):
+        print(result.get(1))
+    elif tim_choise in wins.get(rus_choise):
+        print(result.get(2))
+else:
+    print(result.get(0))
