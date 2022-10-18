@@ -1,0 +1,31 @@
+print(all([True, False]),
+      all([False, False]),
+      all([True, True]),
+      all([10, 100, 1000]),
+      all([10, 100, 0, 1000]),
+      all(['Python', 'C#']),
+      all(['school', '', 'language']),
+      all([(1, 2, 3), []]),
+      all([]),
+      all([[], []]),
+      all({0: 'Monday', 1: 'Tuesday', 2: 'Wednesday'}),
+      all({'name': 'Timur', 'age': 28}),
+      all({'': 'None', 'age': 28}), sep='\n')
+print()
+print(
+    any([True, False]),
+    any([False, False]),
+    any([True, True]),
+    any([10, 100, 1000]),
+    any([0, 0, 0, 0]),
+    any(['Python', 'C#']),
+    any(['', '', 'language']),
+    any([(1, 2, 3), []]),
+    any([]),
+    any([[], []]),
+    any({0: 'Monday', 1: 'Tuesday', 2: 'Wednesday'}),
+    any({0: 'Monday'}),
+    any({'name': 'Timur', 'age': 28}),
+    any({'': 'None', 'age': 28}),
+    sep='\n'
+)
