@@ -1,0 +1,5 @@
+print(89//15)
+print(17 - 45 // 8)
+print(2**5)
+print(100 / 2 ** 2 )
+print(round(1/3, 2))
