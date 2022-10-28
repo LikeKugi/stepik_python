@@ -8,8 +8,7 @@
 # Она должна принимать вложенный словарь и возвращать плоский
 
 def flatten_dict(d: dict, k=None, result=None) -> dict:
-    if d == {'a': 1, 'b': 200}:
-        return str('{"a": 1, "b": 200}')
+
     if result is None:
         result = {}
     for key in d.keys():
@@ -24,13 +23,28 @@ def flatten_dict(d: dict, k=None, result=None) -> dict:
     return result
 
 
+def flatten_dict_(dd, separator ='_', prefix =''):
+    return { prefix + separator + k if prefix else k : v
+             for kk, vv in dd.items()
+             for k, v in flatten_dict(vv, separator, kk).items()
+             } if isinstance(dd, dict) else { prefix : dd }
+
+
 nested = {'Germany': {'berlin': 7},
           'Europe': {'italy': {'Rome': 3}},
           'USA': {'washington': 1, 'New York': 4}}
 print(flatten_dict(nested))
 
-nested = {'Q': {'w': {'E': {'r': {'T': {'y': 123}}}}}}
+nested = {'a':1, 'Q': {'w': {'E': {'r': {'T': {'y': 123}}}}}}
+print(flatten_dict(nested))
+
+nested = {'a': 1,
+ 'c': {'a': 2,
+       'b': {'x': 5,
+             'y' : 10}},
+ 'd': [1, 2, 3]}
 print(flatten_dict(nested))
 
 not_nested = {'a': 100, 'b': 200}
 print(flatten_dict(not_nested))
+
