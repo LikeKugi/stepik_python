@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -6,33 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return """Hello world"""
-
-
-@app.route('/test-case')
-def test_case():
-    return 'tester'
-
-
-@app.route('/calculate/<int:a>/<int:b>')  # переменные в маршрутах
-def calculator(a, b):
-    return str(a ** b)
-
-
-@app.route('/<string:x>/<string:y>/<string:z>/<string:o>')
-@app.route('/<path:x>')
-@app.route('/lesson/<y>/step/<o>')
-def tester():
-    return 'GOOD JOB'
-
-
-operations = ('+', ':', '**', '-', '*')
-
-
-@app.route('/<val>/')
-def browser_calc(val):
-    val = val.replace(':','/')
-    return str(eval(f'{val}'))
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
