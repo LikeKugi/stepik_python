@@ -14,7 +14,7 @@ class LoggableList(list, Loggable):
     def append(self, __object) -> None:
         x = super(LoggableList, self).append(__object)
         self.log(__object)
-        return x
+
 
 
 a = LoggableList()
