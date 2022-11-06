@@ -15,3 +15,22 @@
 
 {{ 1.2345678 | round(2) }}
 ```
+
+{% conditions %} - операторы ветвления
+
+```html
+{% if 'am' in 'lambda' %}
+    <p>True</p>
+{% endif %}
+
+{% if age > 5 %}
+    <p>False</p>
+```
+
+```html
+{% if year % 400 == 0 or (year % 100 != 0 and year % 4 ==0) %}
+    <p>Leap</p>
+{% else %}
+    <p>Not Leap</p>
+{% endif %}
+```
