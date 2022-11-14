@@ -34,3 +34,20 @@
     <p>Not Leap</p>
 {% endif %}
 ```
+
+циклы
+
+```html
+{% for item in ['Pen', 'Pencil', 'Notebook'] %}
+    <li>{{ item }}</li>
+```
+Условие `ELSE` если итерируемая последовательность пуста
+```html
+<ul>
+    {% for user in {} %}
+        <li>{{ user }}</li>
+    {% else %}
+        <li>dict is empty</li>
+    {% endfor %}
+</ul>
+```
