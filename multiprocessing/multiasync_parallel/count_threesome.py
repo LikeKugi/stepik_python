@@ -25,3 +25,4 @@ def count_three_sum(ints, thread_name=''):
 
     print(f'ended count threesome triples: {counter}')
     print(f'iterations {cc_done}')
+    return counter
