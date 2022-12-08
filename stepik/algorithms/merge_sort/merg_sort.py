@@ -4,14 +4,22 @@
 #  например, в упорядоченном по не убыванию массиве инверсий нет вообще,
 #  а в массиве, упорядоченном по убыванию, инверсию образуют каждые два элемента.)
 class MergeSort:
+    """
+    Merge sort of a list of numbers
+    """
 
-    def __init__(self, numbers):
-        self.numbers = numbers
-        self.inversions = 0
+    def __init__(self, numbers: list[int | float]) -> None:
+        """
+        sort a list of numbers with a merge sort.\n
+        if call the function it will return count of inversions in the list.\n
+        :param numbers: list[int | float]
+        """
+        self.numbers: list[int | float] = numbers
+        self.inversions: int = 0
 
-    def merge(self, left: list, right: list) -> list:
+    def merge(self, left: list[int | float], right: list[int | float]) -> list[int | float]:
         n, m = len(left), len(right)
-        result = []
+        result: list[int | float] = []
         i, j = 0, 0
         while i < n and j < m:
             if left[i] <= right[j]:
@@ -25,7 +33,7 @@ class MergeSort:
 
         return result
 
-    def merge_sort(self, numbers: list) -> list:
+    def merge_sort(self, numbers: list[int | float]) -> list[int | float]:
         n = len(numbers)
         if n < 2:
             return numbers[:]
@@ -36,7 +44,14 @@ class MergeSort:
         numbers = self.merge(left, right)
         return numbers
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self, *args, **kwargs) -> int:
+        """
+        merge sort a list
+        :param args: no need
+        :param kwargs: no need
+        :return: int
+            count of inversions in the list
+        """
         self.merge_sort(self.numbers)
         return self.inversions
 
