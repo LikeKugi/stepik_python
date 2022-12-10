@@ -3,7 +3,7 @@
 #  Последняя строка содержит mm целых чисел — координаты точек.
 #  Точка считается принадлежащей отрезку, если она находится внутри него или на границе.
 #  Для каждой точки в порядке появления во вводе выведите, скольким отрезкам она принадлежит.
-from bisect import bisect, bisect_left, bisect_right
+from bisect import bisect_left, bisect_right
 
 
 def get_int_values(): return tuple(map(int, input().split()))
