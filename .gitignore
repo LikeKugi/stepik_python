@@ -400,4 +400,4 @@ FodyWeavers.xsd
 *.json
 *.txt
 *.zip
-*_checkpoints*/
+*_checkpoints*
