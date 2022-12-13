@@ -1,3 +1,5 @@
+#  ex1 with O(n log n) algorithm
+
 def get_max_subsequence(numbers: list):
     n = len(numbers)
     p = [0] * n
@@ -8,30 +10,33 @@ def get_max_subsequence(numbers: list):
         hi = L
         while lo <= hi:
             mid = (lo + hi) // 2
-            if numbers[M[mid]] < numbers[i]:
+            if numbers[M[mid]] >= numbers[i]:
                 lo = mid + 1
             else:
                 hi = mid - 1
         newL = lo
-        p[i] = M[newL-1]
+        p[i] = M[newL - 1]
         M[newL] = i
         if newL > L:
             L = newL
     S = [0] * L
     k = M[L]
-    for i in range(L-1, -1, -1):
-        S[i] = numbers[k]
+    print(p)
+    print(M)
+    for i in range(L - 1, -1, -1):
+        print(f' {k = }', end='')
+        S[i] = k + 1
         k = p[k]
+    print()
     return S
-
-
 
 
 def main():
     length = int(input())
     sequence = list(map(int, input().split()))
     sub = get_max_subsequence(sequence)
-    print(sub)
+    print(len(sub))
+    print(*sub)
 
 
 if __name__ == '__main__':
